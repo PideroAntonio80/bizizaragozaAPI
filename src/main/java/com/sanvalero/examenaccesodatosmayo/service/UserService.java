@@ -19,7 +19,7 @@ public interface UserService {
     User findByEmail(String email);
     List<Rent> getUserRentList(long id);
 
-    User addUser(User user);
+    User addUser(User user) throws Exception;
     User modifyUserCash(long id, float cash);
     void deleteUser(long id);
 }

@@ -46,10 +46,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User addUser(User user) {
-        /*userRepository.findByEmail(user.getEmail());
-        if(userRepository.findByEmail(user.getEmail()).equals(email)) throw new UserExistException(email);*/
-        return userRepository.save(user);
+    public User addUser(User user) throws Exception{
+        if(userRepository.findByEmail(user.getEmail()) == null) {
+            return userRepository.save(user);
+        }
+        throw new Exception("Email already exist");
     }
 
     @Override

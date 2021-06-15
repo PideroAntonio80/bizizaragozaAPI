@@ -107,7 +107,7 @@ public class UserController {
                     content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PostMapping(value= "/bizizaragoza/users", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<User> addUser(@RequestBody User user) {
+    public ResponseEntity<User> addUser(@RequestBody User user) throws Exception {
 
         logger.info("Init addLocation");
 
@@ -168,5 +168,4 @@ public class UserController {
         logger.error(unfe.getMessage(), unfe);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
-
 }
